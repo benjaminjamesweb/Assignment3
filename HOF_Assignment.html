@@ -8,6 +8,140 @@
     
     <script>
 
+        const Y_are_you_hiding = (str) => {
+            const hasY = str.toLowerCase().includes('y');
+            if (hasY) {
+                console.log("YES!")
+            } else {
+                console.log("NO");
+            }
+        }
+
+        console.log("QUESTION 1: ")
+        Y_are_you_hiding("Crazy");
+        Y_are_you_hiding("Hello");
+        Y_are_you_hiding("XYZ");
+        console.log("")
+
+
+        function getFactorial(num) {
+            let factorial = 1;
+
+            for (let i = 1; i <= num; i++) {
+                factorial *= i;
+            }
+
+        console.log(factorial)
+        };
+
+        console.log("QUESTION 2:");
+        getFactorial(5);
+        getFactorial(15);
+        getFactorial(7);
+        console.log("");
+
+
+        let studentList = [
+                { name: "Mike", marks: [80, 50, 60, 100] },
+                { name: "Daniel", marks: [40, 50, 100, 100] },
+                { name: "Stacy", marks: [20, 100, 50, 70] },
+        ];
+
+        let getHighestAverageStudent = studentList => {
+            const getAverage = marks => marks.reduce((accumulator, mark) => accumulator + mark, 0) / marks.length;
+
+            const highestAverageStudent = studentList.reduce((max, student) => {
+                const studentAverage = getAverage(student.marks);
+            
+                if (studentAverage > max.average) {
+                  return { name: student.name, average: studentAverage };
+                } else {
+                  return max;
+                }
+              }, { name: "", average: 0 });
+            
+              console.log("The highest average student is " + highestAverageStudent.name);
+            };
+            
+
+            console.log("QUESTION 3: ");
+            getHighestAverageStudent(studentList);
+            console.log(" ");
+
+
+
+            function getMostFrequentNumber(arr) {
+                let mostFrequentNumber;
+                let highestFrequency = 0;
+              
+                const frequencyMap = {};
+
+                for (let i = 0; i < arr.length; i++) {
+                    const num = arr[i];
+                    frequencyMap[num] = (frequencyMap[num] || 0) + 1;
+
+                    if (frequencyMap[num] > highestFrequency) {
+                    highestFrequency = frequencyMap[num];
+                    mostFrequentNumber = num;
+                    }
+                }
+
+                return mostFrequentNumber;
+                }
+              
+              
+              const numbers = [20, 4, -10, 4, 11, 20, 4, 2];
+
+              console.log("QUESTION 4: ")
+              console.log("The number with the highest number of occurrences is: " + getMostFrequentNumber(numbers));
+              console.log(" ")
+              
+
+              
+              function findUniqueNumber(arr) {
+                
+                const frequencyMap = {};
+              
+                for (let i = 0; i < arr.length; i++) {
+                  const num = arr[i];
+                  frequencyMap[num] = (frequencyMap[num] || 0) + 1;
+                }
+              
+                
+                for (const num in frequencyMap) {
+                  if (frequencyMap[num] === 1) {
+                    return num;
+                  }
+                }
+              
+              }
+              
+              const numbers2 = [20, 20, 11, 4, 11, 20, 2, 4];
+
+              console.log("QUESTION 5: ")
+              console.log("The unique num is: " + findUniqueNumber(numbers2));
+              console.log(" ")
+              
+              
+
+              function filterPalindromes(arr) {
+                const isPalindrome = str => str.split('').reverse().join('') === str;
+              
+                const palindromes = arr.filter(word => isPalindrome(word));
+              
+                return palindromes;
+              }
+              
+
+              array1 = ['kayak', 'water', 'bob', 'clown', 'mom', 'space', 'dad', 'zoom', 'naan', 'go', 'pop', 'ice'];
+              
+              console.log("QUESTION 6: ")
+              console.log("First, here is an containing words that are and aren't palindromes:")
+              console.log(array1)
+              console.log("Now, after using a function to filter the non-palindromes, here is the same array: ")
+              console.log(filterPalindromes(array1))
+
+
     </script>
 </body>
 </html>
